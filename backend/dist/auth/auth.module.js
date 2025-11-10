@@ -14,6 +14,7 @@ const passport_1 = require("@nestjs/passport");
 const config_1 = require("@nestjs/config");
 const user_entity_1 = require("./entities/user.entity");
 const auth_controller_1 = require("./controllers/auth.controller");
+const users_controller_1 = require("./controllers/users.controller");
 const auth_service_1 = require("./services/auth.service");
 const jwt_strategy_1 = require("./strategies/jwt.strategy");
 const mail_service_1 = require("./services/mail.service");
@@ -36,7 +37,7 @@ exports.AuthModule = AuthModule = __decorate([
                 inject: [config_1.ConfigService],
             }),
         ],
-        controllers: [auth_controller_1.AuthController],
+        controllers: [auth_controller_1.AuthController, users_controller_1.UsersController],
         providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy, mail_service_1.MailService],
         exports: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy, passport_1.PassportModule],
     })

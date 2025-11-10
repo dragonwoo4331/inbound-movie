@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { User } from './auth/entities/user.entity';
 import { Movie } from './movies/entities/movie.entity';
@@ -27,6 +29,11 @@ import { FavoritesModule } from './favorites/favorites.module';
         synchronize: configService.get('NODE_ENV') !== 'production',
       }),
       inject: [ConfigService],
+    }),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: true,
+      playground: true,
     }),
     AuthModule,
     MoviesModule,

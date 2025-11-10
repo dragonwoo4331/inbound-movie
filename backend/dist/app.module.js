@@ -10,6 +10,8 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const config_1 = require("@nestjs/config");
+const graphql_1 = require("@nestjs/graphql");
+const apollo_1 = require("@nestjs/apollo");
 const app_controller_1 = require("./app.controller");
 const user_entity_1 = require("./auth/entities/user.entity");
 const movie_entity_1 = require("./movies/entities/movie.entity");
@@ -39,6 +41,11 @@ exports.AppModule = AppModule = __decorate([
                     synchronize: configService.get('NODE_ENV') !== 'production',
                 }),
                 inject: [config_1.ConfigService],
+            }),
+            graphql_1.GraphQLModule.forRoot({
+                driver: apollo_1.ApolloDriver,
+                autoSchemaFile: true,
+                playground: true,
             }),
             auth_module_1.AuthModule,
             movies_module_1.MoviesModule,

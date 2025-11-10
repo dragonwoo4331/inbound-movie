@@ -13,6 +13,7 @@ const config_1 = require("@nestjs/config");
 const movie_entity_1 = require("./entities/movie.entity");
 const movies_controller_1 = require("./controllers/movies.controller");
 const movies_service_1 = require("./services/movies.service");
+const movies_graphql_1 = require("./movies.graphql");
 let MoviesModule = class MoviesModule {
 };
 exports.MoviesModule = MoviesModule;
@@ -23,7 +24,7 @@ exports.MoviesModule = MoviesModule = __decorate([
             config_1.ConfigModule,
         ],
         controllers: [movies_controller_1.MoviesController],
-        providers: [movies_service_1.MoviesService],
+        providers: [movies_service_1.MoviesService, movies_graphql_1.MoviesResolver],
         exports: [movies_service_1.MoviesService],
     })
 ], MoviesModule);

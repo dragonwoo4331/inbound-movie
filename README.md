@@ -144,8 +144,9 @@ VITE_API_URL=http://localhost:3001
 | Category | Technologies |
 |----------|--------------|
 | Frontend | React, TypeScript, Vite, Mantine UI, Zustand, Axios |
-| Backend | NestJS, TypeORM, MySQL |
-| Etc | REST API, LocalStorage, Responsive Design |
+| Backend | NestJS, TypeORM, MySQL, GraphQL |
+| Testing | Jest, Supertest |
+| Etc | REST API, LocalStorage, Responsive Design, Docker |
 
 ---
 
@@ -156,33 +157,105 @@ VITE_API_URL=http://localhost:3001
 - 🔝 Top 12 High-Rated Movies Display
 - 📱 Responsive Design
 - 🔐 Login/Register (JWT Authentication)
+- 🧪 Unit Tests (AuthService, MoviesService)
+- 🔗 GraphQL API Support
+- 👤 User Profile API (GET /users/me)
 
 ---
 
-## 🧱 Folder Structure Example
+## 🧱 Project Structure
 
 ```
 backend/
- ├─ src/
- │   ├─ movies/
- │   ├─ auth/
- │   ├─ users/
- │   └─ main.ts
- └─ package.json
+  ├─ src/
+  │   ├─ auth/
+  │   │   ├─ controllers/
+  │   │   │   ├─ auth.controller.ts
+  │   │   │   └─ users.controller.ts      # Bonus: GET /users/me
+  │   │   ├─ dto/
+  │   │   ├─ entities/
+  │   │   ├─ guards/
+  │   │   ├─ services/
+  │   │   ├─ strategies/
+  │   │   └─ auth.service.spec.ts         # Bonus: Unit Tests
+  │   ├─ movies/
+  │   │   ├─ controllers/
+  │   │   ├─ entities/
+  │   │   ├─ services/
+  │   │   │   └─ movies.service.spec.ts   # Bonus: Unit Tests
+  │   │   ├─ movies.graphql.ts            # Bonus: GraphQL Support
+  │   │   └─ movies.module.ts
+  │   ├─ favorites/
+  │   ├─ app.controller.ts
+  │   ├─ app.module.ts
+  │   └─ main.ts
+  ├─ jest.config.js                       # Bonus: Test Configuration
+  └─ package.json
 
 frontend/
- ├─ src/
- │   ├─ pages/
- │   ├─ components/
- │   ├─ store/
- │   └─ services/
- └─ package.json
+  ├─ src/
+  │   ├─ auth/pages/
+  │   ├─ components/
+  │   │   └─ ProtectedRoute.tsx
+  │   ├─ pages/
+  │   ├─ services/
+  │   │   ├─ apiService.ts
+  │   │   ├─ authService.ts
+  │   │   ├─ favoritesService.ts
+  │   │   └─ movieService.ts
+  │   ├─ shared/
+  │   │   ├─ constants/
+  │   │   ├─ types/
+  │   │   └─ utils/
+  │   ├─ store/
+  │   │   └─ movieStore.ts
+  │   ├─ App.tsx
+  │   └─ main.tsx
+  └─ package.json
 ```
 
 ---
 
 ## 🧑‍💻 Developer
 
-Kim Yongwoo  
-SCIT Master 47th | Full-Stack Developer  
+Kim Yongwoo
+SCIT Master 47th | Full-Stack Developer
 📧 Email: dragonwoo4331@gmail.com
+
+---
+
+## 🎯 Bonus Features Implemented
+
+### ✅ Code Quality & Best Practices
+- **SOLID Principles**: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
+- **DRY Principle**: Eliminated code duplication through reusable utilities and services
+- **KISS Principle**: Simple and straightforward implementations
+
+### ✅ Design Patterns
+- **Repository Pattern**: TypeORM for data access abstraction
+- **DTO Pattern**: Data validation with class-validator
+- **Guard Pattern**: JWT authentication guards
+- **Strategy Pattern**: JWT authentication strategy
+- **Service Layer Pattern**: Business logic separation
+
+### ✅ Testing
+- **Unit Tests**: AuthService and MoviesService test coverage
+- **Jest Configuration**: Complete test setup with mocking
+- **Test Structure**: Proper test organization and assertions
+
+### ✅ GraphQL Support
+- **GraphQL Module**: @nestjs/graphql integration
+- **Movie Queries**: `movies(search: String!)` and `movie(id: ID!)`
+- **Schema Generation**: Auto-generated GraphQL schema
+- **Apollo Server**: GraphQL playground available at `/graphql`
+
+### ✅ Additional REST APIs
+- **GET /users/me**: User profile endpoint (JWT protected)
+- **Complete User Management**: Registration, login, email verification, password reset
+
+### ✅ Production-Ready Features
+- **Docker Support**: Multi-container setup with docker-compose
+- **Environment Configuration**: ConfigService with fallback values
+- **Error Handling**: Comprehensive error responses and logging
+- **Security**: bcrypt hashing, JWT tokens, input validation
+- **Database Optimization**: Proper indexing and foreign key constraints

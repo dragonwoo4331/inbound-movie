@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { Movie } from './entities/movie.entity';
 import { MoviesController } from './controllers/movies.controller';
 import { MoviesService } from './services/movies.service';
+import { MoviesResolver } from './movies.graphql';
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import { MoviesService } from './services/movies.service';
     ConfigModule,
   ],
   controllers: [MoviesController],
-  providers: [MoviesService],
+  providers: [MoviesService, MoviesResolver],
   exports: [MoviesService],
 })
 export class MoviesModule {}
