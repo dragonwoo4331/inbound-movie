@@ -20,7 +20,7 @@ function RegisterPage() {
 
     try {
       await authService.register({ email, password, name })
-      setSuccess('회원가입이 완료되었습니다. 이메일을 확인해주세요.')
+      setSuccess('会員登録が完了しました。メールを確認してください。')
       setTimeout(() => {
         navigate('/login')
       }, 2000)
@@ -50,7 +50,7 @@ function RegisterPage() {
             </Text>
             <Group gap="sm">
               <Button variant="subtle" size="sm" onClick={() => navigate('/login')}>
-                로그인
+                ログイン
               </Button>
             </Group>
           </Group>
@@ -127,7 +127,7 @@ function RegisterPage() {
             </form>
 
             <Text size="sm" ta="center" mt="md" c="gray.3">
-              이미 계정이 있으신가요? <Link to="/login" style={{ color: '#60a5fa' }}>로그인</Link>
+              すでにアカウントをお持ちですか？ <Link to="/login" style={{ color: '#60a5fa' }}>ログイン</Link>
             </Text>
           </Paper>
         </Container>

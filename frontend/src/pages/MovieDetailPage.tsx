@@ -109,7 +109,7 @@ function MovieDetailPage() {
             </Text>
             <Group gap="sm">
               <Button variant="subtle" size="sm" onClick={() => navigate('/favorites')}>
-                즐겨찾기
+                お気に入り
               </Button>
             </Group>
           </Group>

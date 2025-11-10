@@ -22,7 +22,7 @@ function LoginPage() {
       setUser(response.user)
       navigate('/')
     } catch (err: any) {
-      setError(err.response?.data?.message || '로그인에 실패했습니다.')
+      setError(err.response?.data?.message || 'ログインに失敗しました。')
     } finally {
       setLoading(false)
     }
@@ -56,7 +56,7 @@ function LoginPage() {
 
       <AppShell.Main>
         <Container size={420} my={40}>
-          <Title ta="center" c="white" mb="xl">로그인</Title>
+          <Title ta="center" c="white" mb="xl">ログイン</Title>
 
           <Paper
             withBorder
@@ -99,7 +99,7 @@ function LoginPage() {
               />
 
               <Button fullWidth type="submit" loading={loading}>
-                로그인
+                ログイン
               </Button>
             </form>
 

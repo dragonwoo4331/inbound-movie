@@ -56,7 +56,7 @@ function VerifyEmailPage() {
             </Text>
             <Group gap="sm">
               <Button variant="subtle" size="sm" onClick={() => navigate('/login')}>
-                로그인
+                ログイン
               </Button>
               <Button size="sm" onClick={() => navigate('/register')}>
                 회원가입
@@ -93,10 +93,10 @@ function VerifyEmailPage() {
             {success && (
               <>
                 <Alert color="green" mb="md">
-                  이메일 인증이 완료되었습니다! 이제 로그인할 수 있습니다.
+                  メール認証が完了しました！ ログインできます。
                 </Alert>
                 <Button fullWidth onClick={handleLoginRedirect}>
-                  로그인 페이지로 이동
+                  ログインページへ移動
                 </Button>
               </>
             )}

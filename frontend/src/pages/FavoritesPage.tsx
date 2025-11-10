@@ -111,7 +111,7 @@ function FavoritesPage() {
               </Text>
               <Group gap="sm">
                 <Button variant="subtle" size="sm" onClick={() => navigate('/login')}>
-                  로그인
+                  ログイン
                 </Button>
                 <Button size="sm" onClick={() => navigate('/register')}>
                   회원가입
@@ -122,7 +122,7 @@ function FavoritesPage() {
         </AppShell.Header>
         <AppShell.Main>
           <Container size="lg">
-            <Text c="gray.3" ta="center" py="xl">로그인이 필요합니다.</Text>
+            <Text c="gray.3" ta="center" py="xl">ログインが必要です。</Text>
           </Container>
         </AppShell.Main>
       </AppShell>
@@ -158,11 +158,11 @@ function FavoritesPage() {
 
       <AppShell.Main>
         <Container size="lg" py="xl">
-          <Title order={1} c="white" mb="xl">즐겨찾기</Title>
+          <Title order={1} c="white" mb="xl">お気に入り</Title>
 
           {favoriteMovies.length === 0 ? (
             <Text c="gray.3" ta="center" py="xl">
-              즐겨찾기한 영화가 없습니다.
+              お気に入りの映画がありません。
             </Text>
           ) : (
             <Grid gutter="lg" mt="md">

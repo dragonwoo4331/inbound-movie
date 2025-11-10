@@ -175,8 +175,7 @@ function HomePage() {
                 {UI_CONSTANTS.HERO_TITLE}
               </Title>
               <Text c="gray.2">
-                제목으로 검색해서 원하는 영화를 찾고, 마음에 드는 작품은 하트로
-                즐겨찾기에 저장할 수 있습니다.
+                タイトルで検索して好きな映画を見つけ、心に響く作品はハートでお気に入りに保存できます。
               </Text>
               <TextInput
                 placeholder={UI_CONSTANTS.SEARCH_PLACEHOLDER}
@@ -278,7 +277,7 @@ function HomePage() {
 
                       <ActionIcon
                         variant="subtle"
-                        aria-label="즐겨찾기"
+                        aria-label="お気に入り"
                         onClick={() => handleToggleFavorite(movie.imdbID)}
                       >
                         {favorites.includes(movie.imdbID) ? (
