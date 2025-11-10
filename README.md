@@ -293,7 +293,14 @@ docker-compose up --build
 # Frontend: http://localhost:3000
 # Backend API: http://localhost:3001
 # GraphQL Playground: http://localhost:3001/graphql
+# API Documentation: http://localhost:3001/api
 ```
+
+### Screenshots
+<!-- Add screenshots here when available -->
+<!-- ![Home Page](./docs/screenshots/home-page.png) -->
+<!-- ![Movie Detail](./docs/screenshots/movie-detail.png) -->
+<!-- ![API Documentation](./docs/screenshots/swagger-api.png) -->
 
 ### Production Deployment Suggestions
 - **Frontend**: Deploy to Vercel or Netlify
