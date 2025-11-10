@@ -168,9 +168,16 @@ FRONTEND_URL=http://localhost:3000
 NODE_ENV=development
 ```
 
+#### Backend (.env)
+```bash
+cp backend/.env.example backend/.env
+# Edit the .env file with your actual values
+```
+
 #### Frontend (.env)
 ```bash
-VITE_API_URL=http://localhost:3001
+cp frontend/.env.example frontend/.env
+# Edit the .env file with your actual values
 ```
 
 ### 🧪 Running Tests
@@ -182,7 +189,7 @@ npm run test
 # Backend test coverage
 npm run test:cov
 
-# Frontend tests (coming soon)
+# Frontend tests
 cd frontend
 npm run test
 ```

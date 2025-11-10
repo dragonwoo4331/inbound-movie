@@ -172,9 +172,16 @@ FRONTEND_URL=http://localhost:3000
 NODE_ENV=development
 ```
 
+#### 백엔드 (.env)
+```bash
+cp backend/.env.example backend/.env
+# .env 파일을 열어 실제 값으로 수정하세요
+```
+
 #### 프론트엔드 (.env)
 ```bash
-VITE_API_URL=http://localhost:3001
+cp frontend/.env.example frontend/.env
+# .env 파일을 열어 실제 값으로 수정하세요
 ```
 
 ### 🧪 테스트 실행
@@ -186,7 +193,7 @@ npm run test
 # 백엔드 테스트 커버리지
 npm run test:cov
 
-# 프론트엔드 테스트 (추가 예정)
+# 프론트엔드 테스트
 cd frontend
 npm run test
 ```
