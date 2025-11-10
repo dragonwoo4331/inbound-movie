@@ -2,9 +2,9 @@ import api from './apiService'
 import { Movie, MovieSearchResponse } from '../shared/types'
 import { TOP_RATED_MOVIES } from '../shared/constants'
 
-export const searchMovies = async (query: string): Promise<MovieSearchResponse> => {
+export const searchMovies = async (query: string, page = 1): Promise<MovieSearchResponse> => {
   const response = await api.get<MovieSearchResponse>('/movies/search', {
-    params: { s: query },
+    params: { s: query, page },
   })
   return response.data
 }

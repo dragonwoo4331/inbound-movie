@@ -16,4 +16,6 @@ export interface MovieSearchResponse {
   Search: Movie[]
   totalResults: string
   Response: string
+  currentPage?: number
+  totalPages?: number
 }

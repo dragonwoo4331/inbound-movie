@@ -7,7 +7,12 @@ export declare class MoviesService {
     private readonly omdbApiKey;
     private readonly omdbApiUrl;
     constructor(movieRepository: Repository<Movie>, configService: ConfigService);
-    searchMovies(searchTerm: string): Promise<{
+    searchMovies(searchTerm: string, page?: number): Promise<{
+        Search: never[];
+        totalResults: number;
+        currentPage?: undefined;
+        totalPages?: undefined;
+    } | {
         Search: {
             imdbID: string;
             Title: string;
@@ -22,6 +27,8 @@ export declare class MoviesService {
             Genre: string;
         }[];
         totalResults: any;
+        currentPage: number;
+        totalPages: number;
     }>;
     getMovieById(imdbID: string): Promise<{
         imdbID: string;

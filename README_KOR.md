@@ -116,29 +116,79 @@ inbound-movie/
 
 ## 🚀 실행 방법
 
-### 1️⃣ 백엔드
+### 🐳 Docker Compose로 실행 (권장)
+```bash
+# 프로젝트 루트에서 실행
+docker-compose up --build
+```
+
+서비스 실행 후:
+- 백엔드: http://localhost:3001
+- 프론트엔드: http://localhost:3000
+- MySQL: localhost:3306
+
+### 🔧 수동 실행 (개발용)
+
+#### 1️⃣ 백엔드
 ```bash
 cd backend
 npm install
 npm run start:dev
 ```
 
-서버 실행 후: http://localhost:3001
-
-### 2️⃣ 프론트엔드
+#### 2️⃣ 프론트엔드
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-실행 후: http://localhost:3000
+### ⚙️ 환경변수 설정
 
-### ⚙️ .env 파일 예시
-frontend/.env
+#### 백엔드 (.env)
+```bash
+# 데이터베이스 설정
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=movieuser
+DB_PASSWORD=moviepass
+DB_NAME=movie_app
 
+# JWT 설정
+JWT_SECRET=your-secret-key-change-in-production
+
+# OMDB API
+OMDB_API_KEY=your-omdb-api-key
+
+# 이메일 설정 (선택사항)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+FRONTEND_URL=http://localhost:3000
+
+# 기타
+NODE_ENV=development
 ```
+
+#### 프론트엔드 (.env)
+```bash
 VITE_API_URL=http://localhost:3001
+```
+
+### 🧪 테스트 실행
+```bash
+# 백엔드 테스트
+cd backend
+npm run test
+
+# 백엔드 테스트 커버리지
+npm run test:cov
+
+# 프론트엔드 테스트 (추가 예정)
+cd frontend
+npm run test
 ```
 
 ---
@@ -161,6 +211,7 @@ VITE_API_URL=http://localhost:3001
 - 🔝 평점 높은 영화 TOP 12 표시
 - 📱 반응형 디자인
 - 🔐 로그인/회원가입 기능 (JWT)
+- 📧 이메일 인증 및 비밀번호 재설정
 - 🧪 단위 테스트 (AuthService, MoviesService)
 - 🔗 GraphQL API 지원
 - 👤 사용자 프로필 API (GET /users/me)
@@ -216,6 +267,10 @@ frontend/
 
 ### ✅ 추가 REST API
 - **GET /users/me**: JWT 인증된 사용자 프로필 조회
+- **POST /auth/verify-email**: 이메일 인증
+- **POST /auth/resend-verification**: 인증 이메일 재전송
+- **POST /auth/forgot-password**: 비밀번호 재설정 이메일 전송
+- **POST /auth/reset-password**: 비밀번호 재설정
 - **완전한 사용자 관리**: 회원가입, 로그인, 이메일 인증, 비밀번호 재설정
 
 ### ✅ 프로덕션 준비 기능
@@ -225,8 +280,57 @@ frontend/
 - **보안**: bcrypt 해싱, JWT 토큰, 입력 검증
 - **데이터베이스 최적화**: 적절한 인덱싱 및 외래키 제약조건
 
+### 📋 API 엔드포인트 문서
+
+#### 인증 API
+- `POST /auth/register` - 회원가입
+- `POST /auth/login` - 로그인
+- `GET /auth/verify-email?token=xxx` - 이메일 인증
+- `POST /auth/resend-verification` - 인증 이메일 재전송 (JWT 필요)
+- `POST /auth/forgot-password` - 비밀번호 재설정 이메일 요청
+- `POST /auth/reset-password` - 비밀번호 재설정
+- `GET /auth/profile` - 사용자 프로필 조회 (JWT 필요)
+
+#### 영화 API
+- `GET /movies/search?q=query` - 영화 검색
+- `GET /movies/:id` - 영화 상세 정보
+- `GET /movies/top-rated` - 평점 높은 영화 TOP 12
+
+#### 즐겨찾기 API
+- `GET /favorites` - 즐겨찾기 목록 조회 (JWT 필요)
+- `POST /favorites` - 즐겨찾기 추가 (JWT 필요)
+- `DELETE /favorites/:movieId` - 즐겨찾기 삭제 (JWT 필요)
+
+#### GraphQL
+- `POST /graphql` - GraphQL 쿼리/뮤테이션
+- `GET /graphql` - GraphQL Playground
+
 ## 🧑‍💻 개발자
 
 김용우 (Kim Yongwoo)
 SCIT Master 47기 | Full-Stack Developer
 📧 Email: dragonwoo4331@gmail.com
+
+---
+
+## 🎯 데모 및 배포
+
+### 로컬 데모
+```bash
+# Docker Compose로 전체 스택 실행
+docker-compose up --build
+
+# 브라우저에서 접속
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:3001
+# GraphQL Playground: http://localhost:3001/graphql
+```
+
+### 프로덕션 배포 제안
+- **Frontend**: Vercel 또는 Netlify에 배포
+- **Backend**: Railway, Render, 또는 AWS EC2에 배포
+- **Database**: PlanetScale 또는 AWS RDS 사용
+
+### 라이브 데모 링크 (배포 후 추가)
+- Frontend: [링크 추가 예정]
+- Backend API: [링크 추가 예정]

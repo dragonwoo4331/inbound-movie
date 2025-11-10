@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Container, Title, Image, Text, Badge, Group, Button, ActionIcon, Stack, AppShell, Box, Flex } from '@mantine/core'
+import { Container, Title, Image, Text, Badge, Group, Button, ActionIcon, Stack, AppShell, Box, Flex, Loader } from '@mantine/core'
 import { FaHeart, FaRegHeart, FaArrowLeft } from 'react-icons/fa'
 import { useStore, useAuthStore } from '../store/movieStore'
 import { getMovieById } from '../services/movieService'
@@ -53,7 +53,10 @@ function MovieDetailPage() {
         </AppShell.Header>
         <AppShell.Main>
           <Container size="lg">
-            <Text c="gray.3" ta="center" py="xl">読み込み中...</Text>
+            <Flex justify="center" align="center" py="xl">
+              <Loader size="lg" />
+              <Text c="gray.3" ml="md">読み込み中...</Text>
+            </Flex>
           </Container>
         </AppShell.Main>
       </AppShell>

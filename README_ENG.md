@@ -112,29 +112,79 @@ inbound-movie/
 
 ## 🚀 Getting Started
 
-### 1️⃣ Backend
+### 🐳 Docker Compose (Recommended)
+```bash
+# Run from project root
+docker-compose up --build
+```
+
+Services will be available at:
+- Backend: http://localhost:3001
+- Frontend: http://localhost:3000
+- MySQL: localhost:3306
+
+### 🔧 Manual Setup (Development)
+
+#### 1️⃣ Backend
 ```bash
 cd backend
 npm install
 npm run start:dev
 ```
 
-Server will run at: http://localhost:3001
-
-### 2️⃣ Frontend
+#### 2️⃣ Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-App will run at: http://localhost:3000
+### ⚙️ Environment Variables
 
-### ⚙️ .env File Example
-frontend/.env
+#### Backend (.env)
+```bash
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=movieuser
+DB_PASSWORD=moviepass
+DB_NAME=movie_app
 
+# JWT Configuration
+JWT_SECRET=your-secret-key-change-in-production
+
+# OMDB API
+OMDB_API_KEY=your-omdb-api-key
+
+# Email Configuration (Optional)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+FRONTEND_URL=http://localhost:3000
+
+# Other
+NODE_ENV=development
 ```
+
+#### Frontend (.env)
+```bash
 VITE_API_URL=http://localhost:3001
+```
+
+### 🧪 Running Tests
+```bash
+# Backend tests
+cd backend
+npm run test
+
+# Backend test coverage
+npm run test:cov
+
+# Frontend tests (coming soon)
+cd frontend
+npm run test
 ```
 
 ---
@@ -157,6 +207,7 @@ VITE_API_URL=http://localhost:3001
 - 🔝 Top 12 High-Rated Movies Display
 - 📱 Responsive Design
 - 🔐 Login/Register (JWT Authentication)
+- 📧 Email Verification & Password Reset
 - 🧪 Unit Tests (AuthService, MoviesService)
 - 🔗 GraphQL API Support
 - 👤 User Profile API (GET /users/me)
@@ -224,6 +275,30 @@ SCIT Master 47th | Full-Stack Developer
 
 ---
 
+## 🎯 Demo & Deployment
+
+### Local Demo
+```bash
+# Run full stack with Docker Compose
+docker-compose up --build
+
+# Access in browser
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:3001
+# GraphQL Playground: http://localhost:3001/graphql
+```
+
+### Production Deployment Suggestions
+- **Frontend**: Deploy to Vercel or Netlify
+- **Backend**: Deploy to Railway, Render, or AWS EC2
+- **Database**: Use PlanetScale or AWS RDS
+
+### Live Demo Links (Add after deployment)
+- Frontend: [Link to be added]
+- Backend API: [Link to be added]
+
+---
+
 ## 🎯 Bonus Features Implemented
 
 ### ✅ Code Quality & Best Practices
@@ -251,6 +326,10 @@ SCIT Master 47th | Full-Stack Developer
 
 ### ✅ Additional REST APIs
 - **GET /users/me**: User profile endpoint (JWT protected)
+- **POST /auth/verify-email**: Email verification
+- **POST /auth/resend-verification**: Resend verification email (JWT required)
+- **POST /auth/forgot-password**: Request password reset email
+- **POST /auth/reset-password**: Reset password
 - **Complete User Management**: Registration, login, email verification, password reset
 
 ### ✅ Production-Ready Features
@@ -259,3 +338,28 @@ SCIT Master 47th | Full-Stack Developer
 - **Error Handling**: Comprehensive error responses and logging
 - **Security**: bcrypt hashing, JWT tokens, input validation
 - **Database Optimization**: Proper indexing and foreign key constraints
+
+### 📋 API Endpoints Documentation
+
+#### Authentication APIs
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User login
+- `GET /auth/verify-email?token=xxx` - Email verification
+- `POST /auth/resend-verification` - Resend verification email (JWT required)
+- `POST /auth/forgot-password` - Request password reset email
+- `POST /auth/reset-password` - Reset password
+- `GET /auth/profile` - Get user profile (JWT required)
+
+#### Movie APIs
+- `GET /movies/search?q=query` - Search movies
+- `GET /movies/:id` - Get movie details
+- `GET /movies/top-rated` - Get top 12 rated movies
+
+#### Favorites APIs
+- `GET /favorites` - Get favorites list (JWT required)
+- `POST /favorites` - Add to favorites (JWT required)
+- `DELETE /favorites/:movieId` - Remove from favorites (JWT required)
+
+#### GraphQL
+- `POST /graphql` - GraphQL queries/mutations
+- `GET /graphql` - GraphQL Playground

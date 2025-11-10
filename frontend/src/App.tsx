@@ -6,6 +6,7 @@ import LoginPage from './auth/pages/LoginPage'
 import RegisterPage from './auth/pages/RegisterPage'
 import VerifyEmailPage from './auth/pages/VerifyEmailPage'
 import ProtectedRoute from './components/ProtectedRoute'
+import ErrorBoundary from './components/ErrorBoundary'
 import { useAuthStore } from './store/movieStore'
 import { authService } from './services/authService'
 import { useEffect } from 'react'
@@ -27,14 +28,16 @@ function App() {
   }, [setUser])
 
   return (
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
-      <Route path="/" element={<HomePage />} />
-      <Route path="/movies/:movieId" element={<MovieDetailPage />} />
-      <Route path="/favorites" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
-    </Routes>
+    <ErrorBoundary>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailPage />} />
+        <Route path="/favorites" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
+      </Routes>
+    </ErrorBoundary>
   )
 }
 

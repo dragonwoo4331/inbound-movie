@@ -32,13 +32,14 @@ let MoviesService = class MoviesService {
         this.configService = configService;
         this.omdbApiKey = this.configService.get('OMDB_API_KEY', '');
     }
-    async searchMovies(searchTerm) {
+    async searchMovies(searchTerm, page = 1) {
         try {
             const response = await axios_1.default.get(this.omdbApiUrl, {
                 params: {
                     apikey: this.omdbApiKey,
                     s: searchTerm,
                     type: 'movie',
+                    page: page,
                 },
                 timeout: 5000,
             });
@@ -49,6 +50,8 @@ let MoviesService = class MoviesService {
             return {
                 Search: movies.map((movie) => this.transformMovie(movie)),
                 totalResults: response.data.totalResults,
+                currentPage: page,
+                totalPages: Math.ceil(parseInt(response.data.totalResults || '0', 10) / 10),
             };
         }
         catch (error) {

@@ -26,6 +26,19 @@ export const authService = {
     return response.data
   },
 
+  getCurrentUser: (): any => {
+    const token = storage.get(UI_CONSTANTS.LOCAL_STORAGE_TOKEN_KEY)
+    if (!token) return null
+
+    try {
+      // JWT 토큰에서 사용자 정보 추출 (간단한 구현)
+      const payload = JSON.parse(atob(token.split('.')[1]))
+      return payload
+    } catch {
+      return null
+    }
+  },
+
   verifyEmail: async (token: string): Promise<any> => {
     const response = await api.get('/auth/verify-email', {
       params: { token },

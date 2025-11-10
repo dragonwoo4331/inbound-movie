@@ -20,8 +20,9 @@ let MoviesController = class MoviesController {
     constructor(moviesService) {
         this.moviesService = moviesService;
     }
-    async search(searchTerm) {
-        return this.moviesService.searchMovies(searchTerm);
+    async search(searchTerm, page = '1') {
+        const pageNumber = parseInt(page, 10) || 1;
+        return this.moviesService.searchMovies(searchTerm, pageNumber);
     }
     async getMovieById(id) {
         return this.moviesService.getMovieById(id);
@@ -31,8 +32,9 @@ exports.MoviesController = MoviesController;
 __decorate([
     (0, common_1.Get)('search'),
     __param(0, (0, common_1.Query)('s')),
+    __param(1, (0, common_1.Query)('page')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], MoviesController.prototype, "search", null);
 __decorate([

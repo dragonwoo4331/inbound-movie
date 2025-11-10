@@ -14,8 +14,9 @@ export class MoviesController {
   constructor(private readonly moviesService: MoviesService) {}
 
   @Get('search')
-  async search(@Query('s') searchTerm: string) {
-    return this.moviesService.searchMovies(searchTerm);
+  async search(@Query('s') searchTerm: string, @Query('page') page: string = '1') {
+    const pageNumber = parseInt(page, 10) || 1;
+    return this.moviesService.searchMovies(searchTerm, pageNumber);
   }
 
   @Get(':id')
