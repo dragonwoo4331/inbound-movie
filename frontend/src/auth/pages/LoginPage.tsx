@@ -47,7 +47,7 @@ function LoginPage() {
             </Text>
             <Group gap="sm">
               <Button variant="subtle" size="sm" onClick={() => navigate('/register')}>
-                회원가입
+                会員登録
               </Button>
             </Group>
           </Group>
@@ -73,7 +73,7 @@ function LoginPage() {
 
             <form onSubmit={handleSubmit}>
               <TextInput
-                label="이메일"
+                label="メール"
                 placeholder="your@email.com"
                 required
                 value={email}
@@ -86,8 +86,8 @@ function LoginPage() {
               />
 
               <PasswordInput
-                label="비밀번호"
-                placeholder="비밀번호를 입력하세요"
+                label="パスワード"
+                placeholder="パスワードを入力してください"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -104,7 +104,7 @@ function LoginPage() {
             </form>
 
             <Text size="sm" ta="center" mt="md" c="gray.3">
-              계정이 없으신가요? <Link to="/register" style={{ color: '#60a5fa' }}>회원가입</Link>
+              アカウントをお持ちですか？ <Link to="/register" style={{ color: '#60a5fa' }}>会員登録</Link>
             </Text>
           </Paper>
         </Container>

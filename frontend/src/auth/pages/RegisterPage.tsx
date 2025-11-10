@@ -25,7 +25,7 @@ function RegisterPage() {
         navigate('/login')
       }, 2000)
     } catch (err: any) {
-      setError(err.response?.data?.message || '회원가입에 실패했습니다.')
+      setError(err.response?.data?.message || '会員登録に失敗しました。')
     } finally {
       setLoading(false)
     }
@@ -59,7 +59,7 @@ function RegisterPage() {
 
       <AppShell.Main>
         <Container size={420} my={40}>
-          <Title ta="center" c="white" mb="xl">회원가입</Title>
+          <Title ta="center" c="white" mb="xl">会員登録</Title>
 
           <Paper
             withBorder
@@ -82,8 +82,8 @@ function RegisterPage() {
 
             <form onSubmit={handleSubmit}>
               <TextInput
-                label="이름"
-                placeholder="이름을 입력하세요"
+                label="名前"
+                placeholder="名前を入力してください"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -95,7 +95,7 @@ function RegisterPage() {
               />
 
               <TextInput
-                label="이메일"
+                label="メール"
                 placeholder="your@email.com"
                 required
                 type="email"
@@ -109,8 +109,8 @@ function RegisterPage() {
               />
 
               <PasswordInput
-                label="비밀번호"
-                placeholder="비밀번호를 입력하세요 (최소 6자)"
+                label="パスワード"
+                placeholder="パスワードを入力してください (最小6文字)"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -122,7 +122,7 @@ function RegisterPage() {
               />
 
               <Button fullWidth type="submit" loading={loading}>
-                회원가입
+                会員登録
               </Button>
             </form>
 

@@ -14,7 +14,7 @@ function VerifyEmailPage() {
   useEffect(() => {
     const token = searchParams.get('token')
     if (!token) {
-      setError('유효하지 않은 인증 링크입니다.')
+      setError('無効な認証リンクです。')
       setLoading(false)
       return
     }
@@ -24,7 +24,7 @@ function VerifyEmailPage() {
         await authService.verifyEmail(token)
         setSuccess(true)
       } catch (err: any) {
-        setError(err.message || '이메일 인증에 실패했습니다.')
+        setError(err.message || 'メール認証に失敗しました。')
       } finally {
         setLoading(false)
       }
@@ -59,7 +59,7 @@ function VerifyEmailPage() {
                 ログイン
               </Button>
               <Button size="sm" onClick={() => navigate('/register')}>
-                회원가입
+                会員登録
               </Button>
             </Group>
           </Group>
@@ -68,7 +68,7 @@ function VerifyEmailPage() {
 
       <AppShell.Main>
         <Container size={420} my={40}>
-          <Title ta="center" c="white" mb="xl">이메일 인증</Title>
+          <Title ta="center" c="white" mb="xl">メール認証</Title>
 
           <Paper
             withBorder
@@ -80,7 +80,7 @@ function VerifyEmailPage() {
             {loading && (
               <div style={{ textAlign: 'center' }}>
                 <Loader size="lg" mb="md" />
-                <Text c="gray.3">이메일을 인증하는 중...</Text>
+                <Text c="gray.3">メールを認証中...</Text>
               </div>
             )}
 
