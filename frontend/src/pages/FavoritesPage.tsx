@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Container, Title, Card, Image, Text, Badge, Group, ActionIcon, Grid, AppShell, Box, Button } from '@mantine/core'
-import { FaHeart } from 'react-icons/fa'
+import { FaHeart, FaArrowLeft } from 'react-icons/fa'
 import { useStore, useAuthStore } from '../store/movieStore'
 import { favoritesService } from '../services/favoritesService'
 import { useEffect } from 'react'
@@ -84,7 +84,7 @@ function FavoritesPage() {
         </AppShell.Header>
         <AppShell.Main>
           <Container size="lg">
-            <Text c="gray.3" ta="center" py="xl">로딩 중...</Text>
+            <Text c="gray.3" ta="center" py="xl">読み込み中...</Text>
           </Container>
         </AppShell.Main>
       </AppShell>
@@ -114,7 +114,7 @@ function FavoritesPage() {
                   ログイン
                 </Button>
                 <Button size="sm" onClick={() => navigate('/register')}>
-                  회원가입
+                  会員登録
                 </Button>
               </Group>
             </Group>
@@ -147,9 +147,9 @@ function FavoritesPage() {
               🎬 Movie Finder
             </Text>
             <Group gap="sm">
-              <Text size="sm">안녕하세요, {user?.name} 님</Text>
+              <Text size="sm">こんにちは、{user?.name} 様</Text>
               <Button variant="outline" size="sm" onClick={handleLogout}>
-                로그아웃
+                ログアウト
               </Button>
             </Group>
           </Group>
@@ -158,6 +158,14 @@ function FavoritesPage() {
 
       <AppShell.Main>
         <Container size="lg" py="xl">
+          <Button
+            leftSection={<FaArrowLeft />}
+            variant="subtle"
+            mb="xl"
+            onClick={() => navigate(-1)}
+          >
+            戻る
+          </Button>
           <Title order={1} c="white" mb="xl">お気に入り</Title>
 
           {favoriteMovies.length === 0 ? (

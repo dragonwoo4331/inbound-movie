@@ -53,7 +53,7 @@ function MovieDetailPage() {
         </AppShell.Header>
         <AppShell.Main>
           <Container size="lg">
-            <Text c="gray.3" ta="center" py="xl">로딩 중...</Text>
+            <Text c="gray.3" ta="center" py="xl">読み込み中...</Text>
           </Container>
         </AppShell.Main>
       </AppShell>
@@ -83,7 +83,7 @@ function MovieDetailPage() {
         </AppShell.Header>
         <AppShell.Main>
           <Container size="lg">
-            <Text c="gray.3" ta="center" py="xl">영화를 찾을 수 없습니다.</Text>
+            <Text c="gray.3" ta="center" py="xl">映画が見つかりません。</Text>
           </Container>
         </AppShell.Main>
       </AppShell>
@@ -124,7 +124,7 @@ function MovieDetailPage() {
             mb="xl"
             onClick={() => navigate(-1)}
           >
-            뒤로 가기
+            戻る
           </Button>
 
           <Flex gap="xl" align="flex-start" direction={{ base: 'column', md: 'row' }}>
@@ -181,18 +181,18 @@ function MovieDetailPage() {
               </Box>
 
               <Box>
-                <Text size="lg" fw={600} c="white" mb="xs">감독</Text>
-                <Text c="gray.2">{movie.Director !== 'N/A' ? movie.Director : '정보 없음'}</Text>
+                <Text size="lg" fw={600} c="white" mb="xs">監督</Text>
+                <Text c="gray.2">{movie.Director !== 'N/A' ? movie.Director : '情報なし'}</Text>
               </Box>
 
               <Box>
-                <Text size="lg" fw={600} c="white" mb="xs">출연</Text>
-                <Text c="gray.2">{movie.Actors !== 'N/A' ? movie.Actors : '정보 없음'}</Text>
+                <Text size="lg" fw={600} c="white" mb="xs">出演</Text>
+                <Text c="gray.2">{movie.Actors !== 'N/A' ? movie.Actors : '情報なし'}</Text>
               </Box>
 
               <Box>
-                <Text size="lg" fw={600} c="white" mb="xs">장르</Text>
-                <Text c="gray.2">{movie.Genre !== 'N/A' ? movie.Genre : '정보 없음'}</Text>
+                <Text size="lg" fw={600} c="white" mb="xs">ジャンル</Text>
+                <Text c="gray.2">{movie.Genre !== 'N/A' ? movie.Genre : '情報なし'}</Text>
               </Box>
 
               <Box>
