@@ -183,6 +183,6 @@ frontend/
 
 ## 🧑‍💻 開発者
 
-Kim Yongwoo  
+金容佑(キム・ヨンウ)  
 SCIT Master 47期 | Full-Stack Developer  
 📧 Email: dragonwoo4331@gmail.com
