@@ -1,7 +1,7 @@
 # 🎬 Inbound Movie App
 
-A full-stack application implementing movie search and favorites functionality.
-Backend built with NestJS, frontend with React (TypeScript).
+映画検索とブックマーク機能を備えたフルスタックアプリケーションです。
+バックエンドはNestJS、フロントエンドはReact(TypeScript)で実装されています。
 
 ## 🌐 언어 선택 / Language Selection / 言語選択
 
@@ -11,11 +11,11 @@ Backend built with NestJS, frontend with React (TypeScript).
 
 ---
 
-## 📂 Project Structure
+## 📂 プロジェクト構造
 
 ```
 inbound-movie/
-├─ backend/ # NestJS API Server (Assignment 1)
+├─ backend/ # NestJS APIサーバー (課題1)
 │   ├─ src/
 │   │   ├─ auth/
 │   │   │   ├─ auth.module.ts
@@ -62,7 +62,7 @@ inbound-movie/
 │   ├─ package-lock.json
 │   ├─ tsconfig.build.json
 │   └─ tsconfig.json
-└─ frontend/ # React Client (Assignment 2)
+└─ frontend/ # Reactクライアント (課題2)
     ├─ src/
     │   ├─ auth/
     │   │   └─ pages/
@@ -110,27 +110,27 @@ inbound-movie/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 実行方法
 
-### 1️⃣ Backend
+### 1️⃣ バックエンド
 ```bash
 cd backend
 npm install
 npm run start:dev
 ```
 
-Server will run at: http://localhost:3001
+サーバー実行後: http://localhost:3001
 
-### 2️⃣ Frontend
+### 2️⃣ フロントエンド
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-App will run at: http://localhost:3000
+実行後: http://localhost:3000
 
-### ⚙️ .env File Example
+### ⚙️ .envファイル例
 frontend/.env
 
 ```
@@ -139,27 +139,27 @@ VITE_API_URL=http://localhost:3001
 
 ---
 
-## 🧩 Tech Stack
+## 🧩 技術スタック
 
-| Category | Technologies |
-|----------|--------------|
+| 分類 | 使用技術 |
+|------|----------|
 | Frontend | React, TypeScript, Vite, Mantine UI, Zustand, Axios |
 | Backend | NestJS, TypeORM, MySQL |
 | Etc | REST API, LocalStorage, Responsive Design |
 
 ---
 
-## 💡 Key Features
+## 💡 主な機能
 
-- 🎞️ Movie Search (OMDB API based)
-- 💖 Add/Remove Favorites (LocalStorage)
-- 🔝 Top 12 High-Rated Movies Display
-- 📱 Responsive Design
-- 🔐 Login/Register (JWT Authentication)
+- 🎞️ 映画検索 (OMDB APIベース)
+- 💖 ブックマーク追加/削除 (LocalStorage保存)
+- 🔝 評価の高い映画TOP 12表示
+- 📱 レスポンシブデザイン
+- 🔐 ログイン/会員登録機能 (JWT)
 
 ---
 
-## 🧱 Folder Structure Example
+## 🧱 フォルダ構造例
 
 ```
 backend/
@@ -181,8 +181,8 @@ frontend/
 
 ---
 
-## 🧑‍💻 Developer
+## 🧑‍💻 開発者
 
 Kim Yongwoo  
-SCIT Master 47th | Full-Stack Developer  
+SCIT Master 47期 | Full-Stack Developer  
 📧 Email: dragonwoo4331@gmail.com
