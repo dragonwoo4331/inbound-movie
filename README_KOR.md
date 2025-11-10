@@ -6,7 +6,8 @@
 ## 🌐 언어 선택 / Language Selection / 言語選択
 
 - [한국어 (Korean)](README_KOR.md)
-
+- [English](README.md)
+- [日本語 (Japanese)](README_JP.md)
 ---
 
 ## 📂 프로젝트 구조
