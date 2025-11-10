@@ -176,8 +176,8 @@ function MovieDetailPage() {
               </Group>
 
               <Box>
-                <Text size="lg" fw={600} c="white" mb="xs">줄거리</Text>
-                <Text c="gray.2">{movie.Plot !== 'N/A' ? movie.Plot : '줄거리 정보가 없습니다.'}</Text>
+                <Text size="lg" fw={600} c="white" mb="xs">あらすじ</Text>
+                <Text c="gray.2">{movie.Plot !== 'N/A' ? movie.Plot : 'あらすじ情報がありません。'}</Text>
               </Box>
 
               <Box>
@@ -196,8 +196,8 @@ function MovieDetailPage() {
               </Box>
 
               <Box>
-                <Text size="lg" fw={600} c="white" mb="xs">평점</Text>
-                <Text c="gray.2">{movie.imdbRating !== 'N/A' ? `${movie.imdbRating} / 10` : '평점 없음'}</Text>
+                <Text size="lg" fw={600} c="white" mb="xs">評価</Text>
+                <Text c="gray.2">{movie.imdbRating !== 'N/A' ? `${movie.imdbRating} / 10` : '評価なし'}</Text>
               </Box>
             </Stack>
           </Flex>

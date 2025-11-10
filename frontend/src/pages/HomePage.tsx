@@ -147,7 +147,7 @@ function HomePage() {
               </Button>
               {isAuthenticated ? (
                 <>
-                  <Text size="sm">안녕하세요, {user?.name} 님</Text>
+                  <Text size="sm">こんにちは、{user?.name} 様</Text>
                   <Button variant="outline" size="sm" onClick={handleLogout}>
                     {UI_CONSTANTS.LOGOUT_BUTTON}
                   </Button>
@@ -294,7 +294,7 @@ function HomePage() {
 
             {!loading && Array.isArray(movies) && movies.length === 0 && !error && searchQuery.trim() !== '' && (
               <Text c="gray.3" ta="center" mt="xl">
-                검색 결과가 없습니다.
+                検索結果がありません。
               </Text>
             )}
 
