@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: movie_db
+    environment:
+      MYSQL_USER: movieuser
+      MYSQL_PASSWORD: moviepass
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: movie_app
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "movieuser", "-pmoviepass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: movie_backend
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USERNAME: movieuser
+      DB_PASSWORD: moviepass
+      DB_NAME: movie_app
+      JWT_SECRET: your-secret-key-change-in-production
+      OMDB_API_KEY: ${OMDB_API_KEY:-your-api-key}
+      FRONTEND_URL: http://localhost:3000
+      NODE_ENV: development
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: movie_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  mysql_data:
+
